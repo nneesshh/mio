@@ -1,5 +1,5 @@
 [package]
-edition = "2018"
+edition = "2021"
 name = "mio"
 # When releasing to crates.io:
 # - Update CHANGELOG.md.
@@ -43,10 +43,10 @@ os-ext = [
 net = []
 
 [dependencies]
-log = { version = "0.4.8", optional = true }
+log = { version = "0.4", optional = true }
 
 [target.'cfg(unix)'.dependencies]
-libc = "0.2.149"
+libc = "0.2"
 
 [target.'cfg(windows)'.dependencies.windows-sys]
 version = "0.48"
@@ -59,12 +59,12 @@ features = [
 ]
 
 [target.'cfg(target_os = "wasi")'.dependencies]
-wasi = "0.11.0"
-libc = "0.2.149"
+wasi = "0.11"
+libc = "0.2"
 
 [dev-dependencies]
-env_logger = { version = "0.9.3", default-features = false }
-rand = "0.8"
+env_logger = { version = "0.9", default-features = false }
+rand = { path = "../rand", features = ["small_rng"] }
 
 [package.metadata.docs.rs]
 all-features = true
